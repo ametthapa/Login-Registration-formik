@@ -18,7 +18,7 @@ const Login = () => {
         console.log(values);
       }}
     >
-      <div>
+      <div className="h-full flex flex-col justify-center items-center">
         <div>Account Login</div>
         <Form>
           <TextField

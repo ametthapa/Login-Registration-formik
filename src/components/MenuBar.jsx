@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 
 const MenuBar = () => {
   return (
-    <div>
-      <ul className="flex flex-col justify-around items-center p-4 m-auto w-3/4">
-        <li>
+    <div className="bg-primary font-bold text-gray-300 rounded-l-lg">
+      <ul className="flex flex-col items-center justify-center h-full m-auto">
+        <li className="p-4">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="p-4">
           <Link to="/signup">Sign Up</Link>
         </li>
-        <li>
+        <li className="p-4">
           <Link to="/signin">Sign In</Link>
         </li>
       </ul>
