@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="grid grid-cols-3 px-10 py-5 h-screen md:w-2/4 m-auto">
+    <div className="grid grid-cols-3 px-10 py-5 h-screen lg:w-3/4 m-auto">
       <Router>
         <MenuBar className="col-span-1" />
         <div className="col-span-2 rounded-r-lg bg-gray-100 p-5">
