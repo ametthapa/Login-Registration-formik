@@ -5,7 +5,9 @@ const TextField = ({ label, ...props }) => {
   return (
     <div className="pt-4">
       <input
-        className="p-1 outline-black"
+        className={`p-1 outline-black w-full outline-initial focus:outline-final ${
+          meta.touched && meta.error && "is-invalid"
+        } `}
         {...field}
         {...props}
         autoComplete="off"

@@ -19,13 +19,13 @@ const Login = () => {
       }}
     >
       <div className="h-full flex flex-col justify-center items-center">
-        <div>Account Login</div>
+        <div className="text-left font-bold text-2xl">Account Login</div>
         <Form>
           <TextField
             label="E-mail"
             name="email"
             type="email"
-            placeholder="Email"
+            placeholder="E-mail"
           />
           <TextField
             label="Password"
