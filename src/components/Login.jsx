@@ -35,7 +35,7 @@ const Login = () => {
             type="password"
             placeholder="Password"
           />
-          <TextField
+          <input
             className="mt-8 mr-3"
             name="remember"
             type="checkbox"
@@ -50,7 +50,7 @@ const Login = () => {
           </button>
         </Form>
         <button className="text-green-500 hover:text-green-600 font-semibold text-lg transform hover:scale-125 transition duration-200 ease-in rounded absolute bottom-0">
-          <Link to="/signun">Register</Link>
+          <Link to="/signup">Register</Link>
         </button>
       </div>
     </Formik>
