@@ -3,13 +3,7 @@ import MenuBar from "./components/MenuBar";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { Fragment, useEffect, useState } from "react";
 
 function App() {
@@ -18,6 +12,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
+    console.log("i appered");
     const localStorageValue = localStorage.getItem("loggedIn");
     if (localStorageValue) {
       history.push("/");
@@ -28,7 +23,7 @@ function App() {
       }
       setLoggedIn(false);
     }
-  }, []);
+  }, [location.pathname]);
   return (
     <div className=" px-10 py-5  lg:w-3/4 m-auto">
       {/* <MenuBar className="col-span-1" /> */}
