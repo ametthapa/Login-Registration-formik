@@ -1,9 +1,13 @@
 import { Formik, Form } from "formik";
 import TextField from "./TextFeld";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
+  const history = useHistory();
+  const [errorValidation, setErrorValidation] = useState(false);
+
   const validate = Yup.object({
     email: Yup.string().required("Provide Correct Email"),
     password: Yup.string().required("provide correct password"),
@@ -17,7 +21,15 @@ const Login = () => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        console.log(values);
+        const previousUser = window.localStorage.getItem("email");
+        const userPassword = window.localStorage.getItem("password");
+
+        if (values.email === previousUser && values.password === userPassword) {
+          history.push("/");
+          window.localStorage.setItem("loggedIn", "yes");
+        } else {
+          setErrorValidation(true);
+        }
       }}
     >
       {(formik) => {
@@ -37,6 +49,11 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
               />
+              {errorValidation && (
+                <div className="text-sm text-red-600 ml-2">
+                  Invalid E-mail or Password
+                </div>
+              )}
               <input
                 onChange={(e) => {
                   formik.setFieldValue("remember", e.target.checked);
@@ -54,7 +71,7 @@ const Login = () => {
               >
                 Sign in
               </button>
-              <button
+              {/* <button
                 type="button"
                 onClick={() => {
                   console.log(formik.values);
@@ -65,7 +82,7 @@ const Login = () => {
                 }}
               >
                 Validate
-              </button>
+              </button> */}
             </Form>
             <button className="text-green-500 hover:text-green-600 font-semibold text-lg transform hover:scale-125 transition duration-200 ease-in rounded absolute bottom-0">
               <Link to="/signup">Register</Link>

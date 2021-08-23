@@ -1,9 +1,13 @@
 import { Formik, Form } from "formik";
 import TextField from "./TextFeld";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useState } from "react";
 
 const Register = () => {
+  const [usedEmail, setUsedEmail] = useState(false);
+  const history = useHistory();
+
   const validate = Yup.object({
     name: Yup.string().required("Required"),
     email: Yup.string().required("Requiredl"),
@@ -30,7 +34,20 @@ const Register = () => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        console.log(values);
+        const userLoggedInUser = window.localStorage.getItem(
+          "email",
+          values.email
+        );
+        if (userLoggedInUser === values.email) {
+          setUsedEmail(true);
+        } else {
+          window.localStorage.setItem("loggedIn", "yes");
+          window.localStorage.setItem("email", values.email);
+          window.localStorage.setItem("name", values.name);
+          window.localStorage.setItem("password", values.password);
+          window.localStorage.setItem("number", values.number);
+          history.push("/");
+        }
       }}
     >
       <div className="h-full flex flex-col justify-center items-center relative">
@@ -48,6 +65,9 @@ const Register = () => {
             type="email"
             placeholder="Email"
           />
+          {usedEmail && (
+            <div className="text-sm text-red-600 ml-2">E-mail already used</div>
+          )}
           <TextField
             label="Mobile Number"
             name="number"

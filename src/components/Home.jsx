@@ -1,7 +1,8 @@
 const Home = () => {
+  const user = window.localStorage.getItem("name");
   return (
     <div className="text-6xl font-bold h-full w-full text-center flex items-center justify-center">
-      This is Home Page
+      Hello "{user}". How are you?
     </div>
   );
 };
