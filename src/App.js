@@ -14,11 +14,12 @@ function App() {
   useEffect(() => {
     console.log("i appered");
     const localStorageValue = localStorage.getItem("loggedIn");
+    console.log(localStorageValue);
     if (localStorageValue) {
       history.push("/");
       setLoggedIn(true);
     } else {
-      if (location.pathname !== "/signup ") {
+      if (location.pathname !== "/signup") {
         history.push("/signin");
       }
       setLoggedIn(false);
