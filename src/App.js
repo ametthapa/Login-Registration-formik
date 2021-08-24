@@ -23,7 +23,7 @@ function App() {
       }
       setLoggedIn(false);
     }
-  }, [location.pathname]);
+  }, [location.pathname, history]);
   return (
     <div className=" px-10 py-5  lg:w-3/4 m-auto">
       {/* <MenuBar className="col-span-1" /> */}
