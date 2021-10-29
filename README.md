@@ -1,4 +1,4 @@
-# [Preview](authentication-login-registration.netlify.app/)
+# [Preview](https://authentication-login-registration.netlify.app/)
 
 # Getting Started with Create React App
 
