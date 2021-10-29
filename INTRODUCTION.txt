@@ -1,0 +1,5 @@
+just a authentication and formik learning 
+
+only signin page and signup page
+
+also added a home page showing the name of user and logout option given
